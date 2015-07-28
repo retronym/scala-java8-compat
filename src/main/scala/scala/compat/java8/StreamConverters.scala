@@ -109,17 +109,15 @@ trait Priority1StreamConverters extends Priority2StreamConverters {
   * to convert to standard Scala collections.
   *
   * Example:
-  * ```
+  * <code>
   * import scala.compat.java8.StreamConverers._
-  *
   * val s = Vector(1,2,3,4).parStream    // Stream[Int]
   * val si = s.unboxed                   // Stream.OfInt
   * val ai = si.accumulate               // IntAccumulator
   * val v = ai.to[Vector]                // Vector[Int] again
-  *
   * val t = Array(2.0, 3.0, 4.0).parStream               // DoubleStream
   * val q = t.toScala[scala.collection.immutable.Queue]  // Queue[Double]
-  * ```
+  * </code>
   */
 object StreamConverters extends Priority1StreamConverters {
   implicit class EnrichDoubleArrayWithStream(a: Array[Double]) {
